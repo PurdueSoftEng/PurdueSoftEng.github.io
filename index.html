@@ -1,17 +1,23 @@
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <title>ECE 461 Final Project</title>
     <style>
       /* Style the font of the header */
       h1 {
-        font-size: 45px; /* Change the font size to 36px */
+        font-size: 55px; /* Change the font size to 36px */
         font-family: "Comic Sans MS", cursive, sans-serif;
-        margin-top: 10px; /* Add some margin to the top */
-        margin-bottom: 10px; /* Add some margin to the bottom */
+        margin-top: 5px; /* Add some margin to the top */
+        margin-bottom: 5px; /* Add some margin to the bottom */
         text-align: center; /* Center the text */
+      }
+      h2 {
+        font-size: 35px; /* Change the font size to 36px */
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin-top: 30px; /* Add some margin to the top */
+        margin-bottom: 20px; /* Add some margin to the bottom */
+        text-align: left; /* Center the text */
       }
       
       /* Style the logo */
@@ -20,19 +26,28 @@
         margin: 0 auto; /* Center the image horizontally */
         width: 150px; /* Set the width to 100px */
         height: 150px; /* Set the height to 100px */
-        margin-bottom: 50px; /* Add some margin to the bottom */
+        margin-bottom: 40px; /* Add some margin to the bottom */
       }
       
       /* Style the header container */
       header {
         text-align: center; /* Center the header text */
       }
-      label, input {
+      input {
         font-size: 24px; /* Change the font size to 24px or any other size you prefer */
         font-family: "Comic Sans MS", cursive, sans-serif; /* Change the font family to Comic Sans */
       }
+      label {
+        font-size: 34px; /* Change the font size to 24px or any other size you prefer */
+        font-family: "Comic Sans MS", cursive, sans-serif; /* Change the font family to Comic Sans */
+      }
+      div {
+        font-size: 22px; /* Change the font size to 24px or any other size you prefer */
+        font-family: "Comic Sans MS", cursive, sans-serif; /* Change the font family to Comic Sans */
+      }
       body {
-        background-color: #bfefff; /* Change the color to light blue */
+        background-color: #f9daff; /* Update background color to be the 4.5:1 per compliance */
+        color: #000000;
       }
       
       /* Style the footer container */
@@ -42,6 +57,10 @@
         bottom: 0; /* Set the bottom property to 0 */
         width: 100%; /* Set the width to 100% */
         text-align: center; /* Center the text */
+        margin-top: 100px; /* Add some margin to the top */
+        margin-bottom: 100px; /* Add some margin to the bottom */
+        margin-left: 400px; /* Add some margin to the top */
+        margin-right: 100px; /* Add some margin to the bottom */
       }
       
       /* Style the GIF */
@@ -50,36 +69,42 @@
         margin: 0 auto; /* Center the image horizontally */
         width: 200px; /* Set the width to 200px */
         height: 200px; /* Set the height to 200px */
-        margin-bottom: 50px; /* Add some margin to the bottom */
+        margin-top: 100px; /* Add some margin to the top */
+        margin-bottom: 100px; /* Add some margin to the bottom */
       }
       
     </style>
   </head>
   <body>
-    <header>
+    <header role="banner">
       <h1>ECE 461 Final Project</h1> <!-- Add the header -->
     </header>
-    <img id="logo" src="purdueLogo.png" alt="Computer Cartoon"> <!-- Add the logo -->
-    <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="post" enctype="multipart/form-data">
-      <label for="file">Select a zipped file to upload:</label>
-      <input type="file" name="file" id="file"><br><br>
-      <input type="submit" value="Upload File"><br><br>
-    </form>
-    <!-- <form action="https://tool-app-6x33ng5huq-uc.a.run.app/package" method="post">
-      <label for="search">Search our database:</label>
-      <input type="text" name="search" id="search"><br><br>
-      <input type="submit" value="Submit">
-    </form> -->
-    <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="get">
-      <input type="hidden" name="search" value="">
-      <label for="search">Search our database:</label>
-      <input type="text" name="search" id="search"><br><br>
-      <input type="submit" value="Submit">
-    </form>
+    <img id="logo" src="purdueLogo.png" alt="Computer Cartoon" title="Purdue University ECE logo"> <!-- Add title for compliance -->
+    <main role="main">
+      <h2>File Upload</h2>
+        <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="post" enctype="multipart/form-data">
+          <label for="file">Select a zipped file to upload:</label>
+          <input type="file" name="file" id="file" aria-describedby="file-desc"><br><br>
+          <input type="submit" value="Upload File"><br><br>
+          <div id="file-desc">Please select a zipped file to upload.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
+        </form>
+      <h2>Database Search</h2>
+        <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="get">
+          <input type="hidden" name="search" value="">
+          <label for="search">Search our database:</label>
+          <input type="text" name="search" id="search" aria-describedby="search-desc"><br><br>
+          <input type="submit" value="Submit"><br><br>
+          <div id="search-desc">Please enter a keyword to search for in our database.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
+        </form>
+    <main>
 
-    <footer>
-      <div style="width:1240px;height:0;padding-bottom:200px;position:relative;"><iframe src="https://giphy.com/embed/MT5UUV1d4CXE2A37Dg" width=200px height=200px style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Giflytics-MT5UUV1d4CXE2A37Dg"></a></p>
+    <footer role="contentinfo">
+      <div style="width:1240px;height:0;padding-bottom:200px;position:relative;">
+        <iframe src="https://giphy.com/embed/MT5UUV1d4CXE2A37Dg" width=200px height=200px style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen title="This is a moving image of a Computer Dancing. The computer says ANALYZE THIS" ></iframe>
+      </div>
+      <div style="text-align: center;">
     </footer>
+    
 
     <script>
       function uploadFile() {
