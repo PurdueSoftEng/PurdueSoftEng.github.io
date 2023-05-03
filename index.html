@@ -90,24 +90,24 @@
     <header role="banner">
       <h1>ECE 461 Final Project</h1> <!-- Add the header -->
     </header>
-    <img id="logo" src="purdueLogo.png" alt="Computer Cartoon" title="Purdue University ECE logo"> <!-- Add title for compliance -->
-    <main role="main">
-      <h2>File Upload</h2>
-        <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="post" enctype="multipart/form-data">
-          <label for="file">Select a zipped file to upload:</label>
-          <input type="file" name="file" id="file" aria-describedby="file-desc"><br><br>
-          <input type="submit" value="Upload File"><br><br>
-          <div id="file-desc">Please select a zipped file to upload.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
-        </form>
-      <h2>Database Search</h2>
-        <form action="https://tool-app-6x33ng5huq-uc.a.run.app/group" method="get">
-          <input type="hidden" name="search" value="">
-          <label for="search">Search our database:</label>
-          <input type="text" name="search" id="search" aria-describedby="search-desc"><br><br>
-          <input type="submit" value="Submit"><br><br>
-          <div id="search-desc">Please enter a keyword to search for in our database.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
-        </form>
-    <main>
+    
+    <img id="logo" src="purdueLogo.png" alt="Computer Cartoon"> <!-- Add the logo -->
+    <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/packages" method="post" enctype="multipart/form-data">
+      <label for="file">Select a zipped file to upload:</label>
+      <input type="file" name="file" id="file"><br><br>
+      <input type="submit" value="Upload File"><br><br>
+    </form>
+    <!-- <form action="https://tool-app-6x33ng5huq-uc.a.run.app/package" method="post">
+      <label for="search">Search our database:</label>
+      <input type="text" name="search" id="search"><br><br>
+      <input type="submit" value="Submit">
+    </form> -->
+    <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/packages" method="get">
+      <input type="hidden" name="search" value="">
+      <label for="search">Search our database:</label>
+      <input type="text" name="search" id="search"><br><br>
+      <input type="submit" value="Submit">
+    </form>
 
     <footer role="contentinfo">
       <div style="width:1240px;height:0;padding-bottom:200px;position:relative;">
@@ -128,7 +128,7 @@
         formData.append("file", file);
         
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://tool-app-6x33ng5huq-uc.a.run.app/group", true);
+        xhr.open("POST", "https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/packages", true);
         xhr.onload = function() {
           if (xhr.status === 200) {
             console.log(xhr.responseText);
@@ -147,7 +147,7 @@
         formData.append("search", searchQuery);
   
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://tool-app-6x33ng5huq-uc.a.run.app/group", true);
+        xhr.open("GET", "https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/packages", true);
         xhr.onload = function() {
           if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
