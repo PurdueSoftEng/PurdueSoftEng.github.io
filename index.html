@@ -21,11 +21,23 @@
         margin-bottom: 5px; /* Add some margin to the bottom */
         text-align: center; /* Center the text */
       }
-      h2 {
+      h2{
         font-size: 35px; /* Change the font size to 36px */
         font-family: "Comic Sans MS", cursive, sans-serif;
-        margin-top: 30px; /* Add some margin to the top */
+        margin-top: 50px; /* Add some margin to the top */
         margin-bottom: 20px; /* Add some margin to the bottom */
+        text-align: left; /* Center the text */
+      }
+      a{
+        display: inline-block;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: white;
+        border: 2px solid black;
+        font-size: 35px; /* Change the font size to 36px */
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin-top: 10px; /* Add some margin to the top */
+        margin-bottom: 10px; /* Add some margin to the bottom */
         text-align: left; /* Center the text */
       }
       
@@ -35,7 +47,7 @@
         margin: 0 auto; /* Center the image horizontally */
         width: 150px; /* Set the width to 100px */
         height: 150px; /* Set the height to 100px */
-        margin-bottom: 40px; /* Add some margin to the bottom */
+        margin-bottom: 10px; /* Add some margin to the bottom */
       }
       
       /* Style the header container */
@@ -103,22 +115,17 @@
       <h1>ECE 461 Final Project</h1> <!-- Add the header -->
     </header>
     <img id="logo" src="purdueLogo.png" alt="Computer Cartoon" title="Purdue University ECE logo"> <!-- Add title for compliance -->
-    <main role="main">
       <h2>File Upload</h2>
-        <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/upload" method="post" enctype="multipart/form-data">
+      <a href="upload.html">UPLOAD PACKAGE HERE</a>
+      <h2>Update a Package</h2>
+        <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/update" method="post" enctype="multipart/form-data">
           <label for="file">Select a zipped file to upload:</label>
           <input type="file" name="file" id="file" aria-describedby="file-desc"><br><br>
           <input type="submit" value="Upload File"><br><br>
           <div id="file-desc">Please select a zipped file to upload (hit your browser back button to come back home after).</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
         </form>
       <h2>Database Search</h2>
-        <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/search" method="get">
-          <input type="hidden" name="search" value="">
-          <label for="search">Search our database:</label>
-          <input type="text" name="search" id="search" aria-describedby="search-desc"><br><br>
-          <input type="submit" value="Submit"><br><br>
-          <div id="search-desc">Please enter a keyword to search for in our database (hit your browser back button to come back home after).</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
-        </form>
+      <a href="search.html">SEARCH OUR DATABASE HERE</a>
     <main>
 
     <footer role="contentinfo">
