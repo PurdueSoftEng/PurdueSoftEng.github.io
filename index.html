@@ -58,6 +58,18 @@
         background-color: #f9daff; /* Update background color to be the 4.5:1 per compliance */
         color: #000000;
       }
+      button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
       
       /* Style the footer container */
       footer {
@@ -97,7 +109,7 @@
           <label for="file">Select a zipped file to upload:</label>
           <input type="file" name="file" id="file" aria-describedby="file-desc"><br><br>
           <input type="submit" value="Upload File"><br><br>
-          <div id="file-desc">Please select a zipped file to upload.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
+          <div id="file-desc">Please select a zipped file to upload (hit your browser back button to come back home after).</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
         </form>
       <h2>Database Search</h2>
         <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/search" method="get">
@@ -105,7 +117,7 @@
           <label for="search">Search our database:</label>
           <input type="text" name="search" id="search" aria-describedby="search-desc"><br><br>
           <input type="submit" value="Submit"><br><br>
-          <div id="search-desc">Please enter a keyword to search for in our database.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
+          <div id="search-desc">Please enter a keyword to search for in our database (hit your browser back button to come back home after).</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
         </form>
     <main>
 
@@ -136,6 +148,7 @@
         };
         xhr.send(formData);
       }
+      
  
       function searchDatabase() {
         event.preventDefault(); // prevent the form from submitting
