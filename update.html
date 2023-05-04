@@ -18,13 +18,25 @@
           margin-bottom: 5px; /* Add some margin to the bottom */
           text-align: center; /* Center the text */
         }
-        h2,a {
+        h2{
           font-size: 35px; /* Change the font size to 36px */
           font-family: "Comic Sans MS", cursive, sans-serif;
           margin-top: 50px; /* Add some margin to the top */
           margin-bottom: 20px; /* Add some margin to the bottom */
           text-align: left; /* Center the text */
         }
+        a{
+        display: inline-block;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: white;
+        border: 2px solid black;
+        font-size: 35px; /* Change the font size to 36px */
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin-top: 10px; /* Add some margin to the top */
+        margin-bottom: 10px; /* Add some margin to the bottom */
+        text-align: left; /* Center the text */
+      }
         
         /* Style the logo */
         #logo {
@@ -97,7 +109,7 @@
 <body>
     <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
     <span style="font-size: 20px">English</span>
-<main role="main">
+<main role="main"> 
     <h2>Update a Package</h2>
     <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/update" method="post" enctype="multipart/form-data">
         <label for="text-input-1">Package ID:</label>
@@ -111,7 +123,7 @@
         <div id="update-desc">Please enter the fields to update a package.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
 
         <button type="submit">Submit</button>
-      <button onclick="history.back()">Back</button>
+        <a href="index.html" class="back-button">Back</a>
 </body>
 <script>
     function uploadFile() {

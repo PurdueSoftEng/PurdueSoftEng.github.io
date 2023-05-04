@@ -26,17 +26,17 @@
           text-align: left; /* Center the text */
         }
         a{
-        display: inline-block;
-        padding: 10px;
-        border-radius: 20px;
-        background-color: white;
-        border: 2px solid black;
-        font-size: 35px; /* Change the font size to 36px */
-        font-family: "Comic Sans MS", cursive, sans-serif;
-        margin-top: 10px; /* Add some margin to the top */
-        margin-bottom: 10px; /* Add some margin to the bottom */
-        text-align: left; /* Center the text */
-      }
+            display: inline-block;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: white;
+            border: 2px solid black;
+            font-size: 35px; /* Change the font size to 36px */
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin-top: 10px; /* Add some margin to the top */
+            margin-bottom: 10px; /* Add some margin to the bottom */
+            text-align: left; /* Center the text */
+        }
         
         /* Style the logo */
         #logo {
@@ -109,39 +109,18 @@
 <body>
     <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
     <span style="font-size: 20px">English</span>
-<main role="main">
-    <h2>Rate a Package</h2>
+<main role="main"> 
+    <h2>Download a Package</h2>
     <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/update" method="post" enctype="multipart/form-data">
-        <label for="text-input-1">Text input 1:</label>
+        <label for="text-input-1">Package ID:</label>
         <input type="text" id="text-input-1" name="text-input-1"><br>
       
-        <label for="text-input-2">Text input 2:</label>
+        <label for="text-input-2">IDK:</label>
         <input type="text" id="text-input-2" name="text-input-2"><br>
       
-        <label for="text-input-3">Text input 3:</label>
-        <input type="text" id="text-input-3" name="text-input-3"><br>
-      
-        <button type="submit">Submit</button>
+        <div id="update-desc">Please enter the fields to download a package.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
+
+        <button type="submit">Download</button>
         <a href="index.html" class="back-button">Back</a>
 </body>
-<script>
-    function uploadFile() {
-      event.preventDefault(); // prevent the form from submitting
-      
-      var fileInput = document.getElementById("file");
-      var file = fileInput.files[0];
-      
-      var formData = new FormData();
-      formData.append("file", file);
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/upload", true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          console.log(xhr.responseText);
-        }
-      };
-      xhr.send(formData);
-    }
-</script>
 </html>
