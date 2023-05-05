@@ -107,41 +107,45 @@
 </style>
   
 <body>
-    <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
-    <span style="font-size: 20px">English</span>
-<main role="main">
-    <h2>Rate a Package</h2>
-    <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/update" method="post" enctype="multipart/form-data">
-        <label for="text-input-1">Text input 1:</label>
-        <input type="text" id="text-input-1" name="text-input-1"><br>
-      
-        <label for="text-input-2">Text input 2:</label>
-        <input type="text" id="text-input-2" name="text-input-2"><br>
-      
-        <label for="text-input-3">Text input 3:</label>
-        <input type="text" id="text-input-3" name="text-input-3"><br>
-      
-        <button type="submit">Submit</button>
-        <a href="index.html" class="back-button">Back</a>
+  <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
+  <span style="font-size: 20px">English</span>
+  <main role="main">
+    <h2>Get the Rate of a Package</h2>
+    <form id="searchForm" action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package/{id}/rate" method="get">
+      <label for="searchInput">Search by ID:</label>
+      <input type="text" id="searchInput" name="search">
+      <button type="submit" id="searchBtn">Search</button>
+      <div id="searchDesc">Please enter an ID to get a rating from our database.</div>
+      <div id="results"></div>
+    </form>
+    <a href="index.html" class="back-button">Back</a>
+  </main>
+  <script>
+  const form = document.querySelector('#searchForm');
+  const input = document.querySelector('#searchInput');
+  const resultsDiv = document.querySelector('#results');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const value = input.value;
+    const myHeaders = new Headers();
+    myHeaders.append("Access-Control-Allow-Origin", 'https://purduesofteng.github.io/rate.html');
+
+    fetch(`https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package/${value}/rate`, {
+      method: 'GET',
+      headers: myHeaders,
+    })
+    .then(response => response.json())
+    .then(data => {
+      resultsDiv.textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+      console.error(error);
+      resultsDiv.textContent = 'An error occurred while searching';
+    });
+
+    input.value = '';
+  });
+
+  </script>
 </body>
-<script>
-    function uploadFile() {
-      event.preventDefault(); // prevent the form from submitting
-      
-      var fileInput = document.getElementById("file");
-      var file = fileInput.files[0];
-      
-      var formData = new FormData();
-      formData.append("file", file);
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/upload", true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          console.log(xhr.responseText);
-        }
-      };
-      xhr.send(formData);
-    }
-</script>
-</html>

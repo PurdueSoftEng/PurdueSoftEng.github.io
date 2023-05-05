@@ -107,37 +107,47 @@
 </style>
   
 <body>
-    <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
-    <span style="font-size: 20px">English</span>
-<main role="main">
-    <h2>File Upload</h2>
-      <form action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package" method="post" enctype="multipart/form-data">
-        <label for="file">Select a zipped file to upload:</label>
-        <input type="file" name="file" id="file" aria-describedby="file-desc"><br><br>
-        <input type="submit" value="Upload File"><br><br>
-        <div id="file-desc">Please select a zipped file to upload.</div> <!-- labels to associate text descriptions with form elements like input fields and buttons -->
-      </form>
-      <a href="index.html" class="back-button">Back</a>
-</body>
-<script>
-    function uploadFile() {
-      event.preventDefault(); // prevent the form from submitting
-      
-      var fileInput = document.getElementById("file");
-      //var file = fileInput.files[0];
-      var file = {"URL": "https://github.com/jashkenas/test3","JSProgram": "test program"};
-}
-      var formData = new FormData();
-      formData.append("file", file);
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package", true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          console.log(xhr.responseText);
-        }
-      };
-      xhr.send(formData);
+  <img src="languageFlag.png" alt="English language icon" title="English language icon" width="16" height="16">
+  <span style="font-size: 20px">English</span>
+  <main role="main">
+    <h2>Uplaod a package!</h2>
+    <form id="searchForm" action="https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package" method="post">
+      <label for="searchInput">URL:</label>
+      <input type="text" id="searchInput" name="search">
+      <button type="submit" id="searchBtn">UPLOAD</button>
+      <div id="searchDesc">Please enter a URL of a package to apload it to our system.</div>
+      <div id="results"></div>
+    </form>
+    <a href="index.html" class="back-button">Back</a>
+  </main>
+  <script>
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const resultsDiv = document.getElementById('results');
 
-</script>
+    searchForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const searchValue = searchInput.value;
+
+      fetch('https://purdue-soft-eng-384818-6x33ng5huq-uc.a.run.app/package', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          URL: searchValue,
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('API received the HTTP POST request');
+        resultsDiv.textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error(error);
+        resultsDiv.textContent = 'An error occurred while searching';
+      });
+    });
+  </script>
+</body>
 </html>
